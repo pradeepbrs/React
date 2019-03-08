@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Article from "./Components/Article.js";
+import Hello from "./Components/Counter.js";
 import "./styles.css";
 
-ReactDOM.render(<Article />, document.getElementById("root"));
+ReactDOM.render(<Hello />, document.getElementById("root"));
