@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Employee from "./Components/Employee";
+import Article from "./Components/Article.js";
 import "./styles.css";
 
-ReactDOM.render(<Employee />, document.getElementById("root"));
+ReactDOM.render(<Article />, document.getElementById("root"));
