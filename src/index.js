@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Hello from "./Components/Counter.js";
+import Btn from "./Components/button.js";
 import "./styles.css";
 
-ReactDOM.render(<Hello />, document.getElementById("root"));
+ReactDOM.render(<Btn />, document.getElementById("root"));

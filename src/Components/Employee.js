@@ -7,21 +7,36 @@ class Employee extends React.Component {
       empName: "Jack",
       age: 30,
       salary: 50000,
-      image: "emp1.png"
+      image: "emp1.png",
+      achievements:
+        "Has got 3 bravo awards and 1 MVP award. Has worked on cutting edge technologies as well"
     };
     const emp2 = {
       empId: 101,
       empName: "Jane",
       age: 24,
       salary: 40000,
-      image: "emp2.png"
+      image: "emp2.png",
+      achievements: "No major achievements so far"
     };
     this.empArr = [emp1, emp2];
+
+    this.state = {
+      selectedEmp: null
+    };
   }
   createCard(emp) {
     var note = null;
+    var achievements = null;
     if (emp.age < 25) {
       note = <span className="text-info"> - Fresher</span>;
+    }
+    if (this.state.selectedEmp == emp.empId) {
+      achievements = (
+        <p>
+          <i>{emp.achievements}</i>
+        </p>
+      );
     }
 
     return (
@@ -42,8 +57,17 @@ class Employee extends React.Component {
             <span>Salary: {emp.salary}</span>
             <br />
           </p>
+          {achievements}
           <button type="button" className="btn btn-primary">
-            Edit Details
+            Edit
+          </button>{" "}
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              this.setState({ selectedEmp: emp.empId });
+            }}
+          >
+            View
           </button>
         </div>
       </div>
