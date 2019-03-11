@@ -1,13 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Redirect } from "react-router";
 
 class Product extends React.Component {
   constructor() {
     super();
-    this.state = { buttonClicked: false };
+    this.state = {
+      buttonClicked: false,
+      et: null
+    };
   }
+  edit = () => {
+    this.setState({ et: true });
+    console.log(this.state.et);
+  };
   render() {
     var achievements = null;
+    var redirect = null;
     if (this.state.buttonClicked) {
       achievements = (
         <p className="card-text">
@@ -21,6 +30,9 @@ class Product extends React.Component {
         </p>
       );
     }
+    if (this.state.et) {
+      redirect = <Redirect to={"/edit/" + this.props.prd.model} push />;
+    }
     return (
       <div className="card" style={{ width: 190 }}>
         <div className="card-body">
@@ -33,9 +45,7 @@ class Product extends React.Component {
           <button
             className="btn"
             style={{ backgroundColor: "red" }}
-            onClick={() => {
-              this.setState({ buttonClicked: true });
-            }}
+            onClick={this.edit}
           >
             Show Details
           </button>
@@ -49,6 +59,7 @@ class Product extends React.Component {
           >
             Hide Details
           </button>
+          {redirect}
         </div>
       </div>
     );
