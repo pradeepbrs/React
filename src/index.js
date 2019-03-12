@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.js";
+import Forms from "./Components/Forms.js";
 import "./styles.css";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Forms />
   </BrowserRouter>,
   document.getElementById("root")
 );
